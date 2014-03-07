@@ -77,7 +77,7 @@ displayWith config user = do
   let (myCredential, myOauthApp) = prepareCredentials config;
   req <- HTTP.parseUrl $ buildTimelineLink user
   signedReq <- signOAuth myOauthApp myCredential req;
-  resp <- HTTP.withManager $ \m -> HTTP.httpLbs signedReq m
+  resp <- HTTP.withManager $ HTTP.httpLbs signedReq
   let body = HTTP.responseBody resp
   let maybeTweets = JSON.decode body :: Maybe [Tweet]
   case maybeTweets of
