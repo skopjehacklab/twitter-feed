@@ -1,8 +1,9 @@
-{-# LANGUAGE OverloadedStrings #-} 
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 
 -- Overloaded strings is just for "api.twitter.com"
--- The other
+-- DerieDataTypeable should be removed after clearing
+-- the aeson warning to switch to GHC Generics or Template Haskell
 
 import Data.Data;
 import System.Environment;
