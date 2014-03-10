@@ -27,8 +27,7 @@ data Url = Url { expanded_url :: String } deriving (Data, Typeable)
 -- Extracts links from the JSON structure
 extractLinks :: [Tweet] -> [String]
 extractLinks tweets =
-  let ents = map entities tweets
-      urllist = ents >>= urls
+  let urllist = map entities tweets >>= urls
   in map expanded_url urllist;
 
 
